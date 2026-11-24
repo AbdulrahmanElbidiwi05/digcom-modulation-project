@@ -23,9 +23,27 @@ function plotConstellation(modType, EbNo_dB, nSym)
     grid on; axis equal;
     xlim(1.6*span*[-1 1]);   ylim(1.6*span*[-1 1]);
     if strcmpi(modType, 'BFSK')
-        xlabel('\phi_1');  ylabel('\phi_2');
+        centerAxes('\phi_1', '\phi_2');
     else
-        xlabel('I');       ylabel('Q');
+        centerAxes('I', 'Q');
     end
     title(sprintf('%s constellation, E_b/N_o = %g dB', modType, EbNo_dB));
+end
+
+function centerAxes(xName, yName)
+% CENTERAXES  Move the axes lines to the origin (textbook style) and name the axis ends.
+%   centerAxes('I', 'Q')
+    ax = gca;
+    ax.XAxisLocation = 'origin';              % x-axis line crosses at y = 0
+    ax.YAxisLocation = 'origin';              % y-axis line crosses at x = 0
+    box off;                                  % remove the surrounding frame
+
+    ax.XTick = setdiff(ax.XTick, 0);          % drop the duplicate "0" tick at the crossing
+    ax.YTick = setdiff(ax.YTick, 0);
+
+    xl = xlim;   yl = ylim;
+    text(xl(2), 0, xName, 'FontWeight', 'bold', ...
+         'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom');   % end of x-axis
+    text(0, yl(2), yName, 'FontWeight', 'bold', ...
+         'HorizontalAlignment', 'left',  'VerticalAlignment', 'top');      % top of y-axis
 end

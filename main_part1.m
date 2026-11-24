@@ -2,7 +2,7 @@
 clear; clc; close all;
 
 
-chosen  = 'QPSK';                            % scheme used for constellation + PSD
+chosen  = '16QAM';                            % scheme used for constellation + PSD
 EbNo_dB = 0:1:12;
 
 %% 1) BER of BPSK, QPSK, 8PSK, 16QAM with theory
