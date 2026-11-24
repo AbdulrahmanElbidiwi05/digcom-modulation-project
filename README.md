@@ -1,8 +1,6 @@
 # Digital Communications: Modulation Project
 
-MATLAB simulation of single-carrier and OFDM communication systems.
-Cairo University, Faculty of Engineering, Electronics and Communications Dept., 3rd year.
-**Deadline for all parts: 14 Dec 2026, 11:59 PM.**
+
 
 | Part | Topic | Folder | Owner |
 |---|---|---|---|
@@ -10,7 +8,6 @@ Cairo University, Faculty of Engineering, Electronics and Communications Dept., 
 | 2 | BPSK, QPSK and 16QAM over a Rayleigh flat-fading channel | `part2/` | *(name)* |
 | 3 | OFDM (256-point IFFT, coding, interleaver, two fading channels) | `part3/` | *(name)* |
 
-Parts 2 and 3 do **not** re-implement the modulation. They call the shared functions in `common/`.
 
 ---
 
@@ -22,11 +19,6 @@ Parts 2 and 3 do **not** re-implement the modulation. They call the shared funct
 | `part1/` | Part 1 scripts and plotting functions: `main_part1.m`, `simBER.m`, `theoryBER.m`, `plotBER.m`, `plotQPSKcompare.m`, `plotConstellation.m`, `plotPSD.m`, `centerAxes.m` |
 | `part2/` | Part 2 code (Rayleigh flat fading) |
 | `part3/` | Part 3 code (OFDM) |
-
-## 2. Requirements
-
-- **MATLAB R2016b or newer.** The code relies on implicit expansion (for example `r - const.'`).
-- **No toolboxes needed.** The code avoids `sinc`, `pwelch`, `awgn` and so on, so it also runs on a plain MATLAB installation.
 
 ## 3. Quick start
 
@@ -207,9 +199,4 @@ Run it after **every** change to `common/`.
 | Points missing at high Eb/No | Zero errors cannot be drawn on a log axis. Increase the number of bits |
 | Memory error in 8PSK | Reduce the number of bits `N` (the demapper builds an 8 × N distance matrix) |
 
-## 11. Working together
 
-- Pull before you start (`git pull`) and push small, clear commits.
-- **Do not change files in `common/` without telling the others.** A change in `mapper.m` or `demapper.m` affects every part. After any change, run `test_modem` and say so in the commit message.
-- Keep each part's code inside its own folder, and write repeated code as functions.
-- Comment your code. The TA grades by discussion, so everyone should be able to explain the functions they call.
