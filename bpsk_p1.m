@@ -25,7 +25,7 @@ Eb    = 1;                            % BPSK: Es = Eb = 1
 No    = Eb/EbNo;                      % noise PSD
 sigma = sqrt(No/2);                   % noise standard deviation
 
-noise = sigma * randn(1, N);          % AWGN, same size as the symbols
+noise = sigma * randn(1, N);          % AWGN
 r     = symbols + noise;              % received signal
 
 % --- checks ---
